@@ -1,0 +1,16 @@
+{
+  "name": "eat-da-burger",
+  "version": "1.0.0",
+  "description": "burger menu",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "author": "Mike Preston",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0"
+  }
+}
