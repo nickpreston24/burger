@@ -1,6 +1,24 @@
-var orm = require('../config/orm');
+/*	Author: Michael Preston
+ *	Created Date: "01-11-2019"
+ */
+var orm = require('../config/orm.js');
+var burger = {
+    all: function (callback) {
+        orm.selectAll("burgers", function (response) {
+            callback(response);
+        })
+    },
+    create: function (cols, vals, callback) {
+        orm.insertOne("burgers", cols, vals, function (response) {
+            callback(response);
+        });
+    },
+    update: function (columnValues, condition, callback) {
+        console.log('cols:', columnValues);
+        orm.updateOne("burgers", columnValues, condition, function (response) {
+            callback(response);
+        });
+    }
+}
 
-//todo: create the code that will call the ORM functions using burger specific input for the ORM.
-
-//todo: Export at the end of the burger.js file.
-// module.exports = ???;
+module.exports = burger;
