@@ -1,3 +1,6 @@
+/*	Author: Michael Preston
+ *	Created Date: "01-11-2019"
+ */
 var mysql = require("mysql");
 let {
     Password,
@@ -5,16 +8,15 @@ let {
     JAWSDB_URL
 } = process.env;
 
-console.log(process.env.JAWSDB_URL);
-
 if (JAWSDB_URL) {
     connection = mysql.createConnection(JAWSDB_URL);
 } else {
+    console.log("running local db...")
     var connection = mysql.createConnection({
         host: "localhost",
-        port: PORT | 3306,
+        port: 3306,
         user: "root",
-        password: Password,
+        password: "birman",
         database: "burgers_db"
     });
 }
