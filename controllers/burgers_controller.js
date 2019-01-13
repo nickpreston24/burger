@@ -1,3 +1,6 @@
+/*	Author: Michael Preston
+ *	Created Date: "01-11-2019"
+ */
 var express = require('express');
 var router = express.Router();
 var burger = require('../models/burger.js');
@@ -26,7 +29,12 @@ router.post("/api/burgers", function (request, response) {
 
 router.put("/api/burgers/:id", function (request, response) {
     var condition = "id = " + request.params.id;
-    burger.update({}, condition, function (result) {
+    console.log("body: ", request.body);
+    burger.update({
+        id: request.params.id,
+        name: request.body.name,
+        devoured: request.body.devoured
+    }, condition, function (result) {
         if (result.changedRows == 0) {
             return response.status(404).end();
         } else {
