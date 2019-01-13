@@ -5,6 +5,8 @@ let {
     JAWSDB_URL
 } = process.env;
 
+console.log(process.env.JAWSDB_URL);
+
 if (JAWSDB_URL) {
     connection = mysql.createConnection(JAWSDB_URL);
 } else {
